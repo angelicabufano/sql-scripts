@@ -1,8 +1,9 @@
 SELECT *
-	from Customers
-	join Orders
-		on Orders.CustomerId = Customers.Id 
-
+	from Customers c
+	join Orders o
+		on o.CustomerId = c.Id 
+	join OrderLines ol
+		on ol.OrdersId = o.Id  
 
 
 SELECT Date, Orders.Description 'Order', Product, OrderLines.Description, Quantity, Price
@@ -10,3 +11,4 @@ SELECT Date, Orders.Description 'Order', Product, OrderLines.Description, Quanti
 	join OrderLines
 		on OrderLines.OrdersId = Orders.Id
 	Order by product, orderlines.description;
+
